@@ -30,6 +30,10 @@ colnames(fin_min) <- c('miss','pred')
 
 final <- rbind(fin_max, fin_min)
 
-ans <- final[sort(as.integer(substr(final$miss,9,100))),]
+final$miss <- as.numeric(substr(final$miss,9,100))
+ans <- data.frame()
+for (i in 1:100){
+    ans <- rbind(ans, final[i,])
+    }
 
 write.table(ans$pred, row.names = F, col.names = F, quote = F)
