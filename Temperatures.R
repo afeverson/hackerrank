@@ -1,4 +1,3 @@
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 #getting the input data
 n <- as.integer(read.table('/dev/stdin', nrow = 1, header = F))
 data <- read.table('/dev/stdin', skip = 1, nrow = n, header = T)
@@ -42,7 +41,7 @@ final <- rbind(fin_max, fin_min)
 #ordering the output data appropriately
 final$miss <- as.numeric(substr(final$miss,9,100))
 ans <- data.frame()
-for (i in 1:100){
+for (i in 1:(nrow(test_max)+nrow(test_min))){
     ans <- rbind(ans, final[i,])
     }
 
